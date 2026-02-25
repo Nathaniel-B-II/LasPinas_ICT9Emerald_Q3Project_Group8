@@ -1,1 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title> BurgerVille Transport Schedule </title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: url(360_F_1852476034_Dyw5Ff5GBubLItam6mHXeTbETO7o2nYH.jpg) no-repeat center center fixed; /* Replace with your image */
+      background-size: cover;
+      color: #fff;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    nav {
+      background: rgba(0,0,0,0.7);
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    nav .links a {
+      margin-right: 20px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav .links a:hover {
+      color: #00c3ff;
+    }
+    nav .actions button {
+      margin-left: 10px;
+      padding: 8px 15px;
+      background: #00c3ff;
+      border: none;
+      color: #fff;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    nav .actions button:hover {
+      background: #0099cc;
+    }
+    .overlay {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .schedule-container {
+      background: rgba(0,0,0,0.6);
+      padding: 30px;
+      border-radius: 8px;
+      width: 600px;
+      text-align: center;
+      box-shadow: 0 0 15px rgba(0,0,0,0.5);
+    }
+    h2 {
+      margin-bottom: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: rgba(255,255,255,0.1);
+    }
+    th, td {
+      border: 1px solid #fff;
+      padding: 10px;
+      text-align: center;
+    }
+    th {
+      background: rgba(0,195,255,0.4);
+    }
+    footer {
+      text-align: center;
+      padding: 15px;
+      background: rgba(0,0,0,0.7);
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav>
+    <div class="links">
+      <a href="#">Home</a>
+      <a href="#">Fare Matrix</a>
+      <a href="#">Schedule</a>
+      <a href="#">Location</a>
+      <a href="#">Help</a>
+    </div>
+    <div class="actions">
+      <button>Book Now</button>
+      <button>Create Account</button>
+    </div>
+  </nav>
 
+  <div class="overlay">
+    <!-- Schedule Table -->
+    <div class="schedule-container">
+      <h2> BurgerVille Transport Schedule</h2>
+      <table>
+        <tr><th>Route</th><th>Departure</th><th>Arrival</th></tr>
+        <tr><td>North Ave. → Taft</td><td>7:00 AM</td><td>8:30 AM</td></tr>
+        <tr><td>Taft → North Ave.</td><td>9:00 AM</td><td>10:30 AM</td></tr>
+        <tr><td>North Ave. → Cubao</td><td>11:00 AM</td><td>11:45 AM</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <footer>
+    Student Name | Grade & Section ©2026
+  </footer>
+</body>
+</html>
