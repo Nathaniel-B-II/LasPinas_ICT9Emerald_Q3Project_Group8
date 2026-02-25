@@ -1,1 +1,172 @@
-# LasPinas_ICT9Emerald_Q3Project_Group8
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>BurgerVille Registration</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: url(360_F_1852476034_Dyw5Ff5GBubLItam6mHXeTbETO7o2nYH.jpg) no-repeat center center fixed; /* Replace with your image */
+      background-size: cover;
+      color: #fff;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    nav {
+      background: rgba(0,0,0,0.7);
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    nav .links a {
+      margin-right: 20px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav .links a:hover {
+      color: #00c3ff;
+    }
+    nav .actions button {
+      margin-left: 10px;
+      padding: 8px 15px;
+      background: #00c3ff;
+      border: none;
+      color: #fff;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    nav .actions button:hover {
+      background: #0099cc;
+    }
+    .overlay {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .form-container, .confirmed {
+      background: rgba(0,0,0,0.6);
+      padding: 30px;
+      border-radius: 8px;
+      width: 350px;
+      text-align: center;
+      box-shadow: 0 0 15px rgba(0,0,0,0.5);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease;
+    }
+    .active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    h2 {
+      margin-bottom: 20px;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 4px;
+    }
+    input[type="file"] {
+      background: transparent;
+      color: #fff;
+    }
+    .btn {
+      width: 100%;
+      padding: 12px;
+      background: #00c3ff;
+      border: none;
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 4px;
+      margin-top: 10px;
+      transition: background 0.3s;
+    }
+    .btn:hover {
+      background: #0099cc;
+    }
+    footer {
+      text-align: center;
+      padding: 15px;
+      background: rgba(0,0,0,0.7);
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav>
+    <div class="links">
+      <a href="#">Home</a>
+      <a href="#">Fare Matrix</a>
+      <a href="#">Location</a>
+      <a href="#">Help</a>
+    </div>
+    <div class="actions">
+      <button>Book Now</button>
+      <button onclick="showCreateAccount()">Create Account</button>
+    </div>
+  </nav>
+
+  <div class="overlay">
+    <!-- Registration Form -->
+    <div class="form-container active" id="registrationForm">
+      <h2> BurgerVille Registration</h2>
+      <form id="form">
+        <div class="form-group"><input type="text" placeholder="First Name" required></div>
+        <div class="form-group"><input type="text" placeholder="Last Name" required></div>
+        <div class="form-group"><input type="number" placeholder="Age" required></div>
+        <div class="form-group"><input type="text" placeholder="Contact Number" required></div>
+        <div class="form-group"><input type="email" placeholder="Email" required></div>
+        <div class="form-group"><input type="text" placeholder="Username" required></div>
+        <div class="form-group"><input type="password" placeholder="Password" required></div>
+        <div class="form-group"><input type="file"></div>
+        <button class="btn" type="submit">Register</button>
+      </form>
+    </div>
+
+    <!-- Account Confirmed Message -->
+    <div class="confirmed" id="confirmedMessage">
+      <h2>Account Confirmed!!!</h2>
+      <p>Your account has been created</p>
+    </div>
+  </div>
+
+  <footer>
+    Student Name | Grade & Section ©2026
+  </footer>
+
+  <script>
+    const form = document.getElementById('form');
+    const registrationForm = document.getElementById('registrationForm');
+    const confirmedMessage = document.getElementById('confirmedMessage');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      registrationForm.classList.remove('active');
+      setTimeout(() => {
+        registrationForm.style.display = 'none';
+        confirmedMessage.style.display = 'block';
+        confirmedMessage.classList.add('active');
+      }, 600);
+    });
+
+    function showCreateAccount() {
+      registrationForm.style.display = 'block';
+      registrationForm.classList.add('active');
+      confirmedMessage.style.display = 'none';
+      confirmedMessage.classList.remove('active');
+    }
+  </script>
+</body>
+</html>
