@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eSakayMo Fare Matrix</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://media.discordapp.net/attachments/1471344243585847459/1476204001140670525/360_F_1852476034_Dyw5Ff5GBubLItam6mHXeTbETO7o2nYH.jpg?ex=69a0459c&is=699ef41c&hm=54a2199f86c48c4d948c1068fd489d2b7cfac78f32f0c324ddd670b1849b5c57&=&format=webp&width=801&height=450');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        nav {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+            background-color: #000000;
+        }
+        
+        .nav-left {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+        
+        .nav-left a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        
+        .nav-left a:hover {
+            color: #64c8ff;
+        }
+        
+        .nav-right {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .btn {
+            padding: 8px 20px;
+            border: none;
+            border-radius: 4px;
+            font-size: 14px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-book {
+            background-color: transparent;
+            color: white;
+            border: 1px solid white;
+        }
+        
+        .btn-book:hover {
+            background-color: white;
+            color: #1a4d5c;
+        }
+        
+        .btn-create {
+            background-color: #007bff;
+            color: white;
+        }
+        
+        .btn-create:hover {
+            background-color: #0056b3;
+        }
+        
+        .page-title {
+            position: relative;
+            z-index: 5;
+            text-align: center;
+            padding: 30px 0;
+            font-size: 32px;
+            color: #ff9900;
+            font-weight: bold;
+        }
+        
+        .container {
+            position: relative;
+            z-index: 5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px 40px;
+            gap: 40px;
+        }
+        
+        .map-section {
+            flex: 1;
+            max-width: 300px;
+        }
+        
+        .map-section img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .form-section {
+            flex: 1;
+            background-color: rgba(110, 180, 200, 0.8);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            min-width: 400px;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-label {
+            display: block;
+            font-size: 16px;
+            font-weight: bold;
+            color: #1a4d5c;
+            margin-bottom: 10px;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 12px;
+            font-size: 14px;
+            border: none;
+            border-radius: 4px;
+            background-color: white;
+            color: #333;
+            font-family: Arial, sans-serif;
+        }
+        
+        .form-input::placeholder {
+            color: #999;
+        }
+        
+        select.form-input {
+            cursor: pointer;
+        }
+        
+        select.form-input option {
+            color: #333;
+            background-color: white;
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .btn-fare {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        .btn-regular {
+            background-color: #ffcc00;
+            color: #333;
+        }
+        
+        .btn-regular:hover {
+            background-color: #ffb300;
+        }
+        
+        .btn-discounted {
+            background-color: #333;
+            color: white;
+        }
+        
+        .btn-discounted:hover {
+            background-color: #555;
+        }
+        
+        .fare-display {
+            background-color: #002b5c;
+            color: white;
+            padding: 40px;
+            border-radius: 8px;
+            text-align: center;
+            flex: 1;
+            max-width: 300px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .fare-label {
+            font-size: 20px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .fare-amount {
+            font-size: 64px;
+            font-weight: bold;
+            color: #ff9900;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-left">
+            <a href="index.html">Home</a>
+            <a href="farematrix.html">Fare Matrix</a>
+            <a href="schedule.html">Schedule</a>
+            <a href="help.html">Help</a>
+        </div>
+        <div class="nav-right">
+            <a href="booknow.html" class="btn btn-book">Book Now</a>
+            <a href="createaccount.html" class="btn btn-create">Create Account</a>
+        </div>
+    </nav>
+    
+    <div class="page-title">
+        eSakayMo Fare Matrix
+    </div>
+    
+    <div class="container">
+        <div class="map-section">
+            <img src="https://via.placeholder.com/300x300?text=Map" alt="Route Map">
+        </div>
+        
+        <div class="form-section">
+            <div class="form-group">
+                <label class="form-label">PICK-UP LOCATION:</label>
+                <select class="form-input" id="pickupLocation" onchange="calculateFare()">
+                    <option value="1">North Ave</option>
+                    <option value="1.5">SM Southmall</option>
+                    <option value="2">South Ave</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label">DROP-OFF LOCATION:</label>
+                <select class="form-input" id="dropoffLocation" onchange="calculateFare()">
+                    <option value="1">Evia Mall</option>
+                    <option value="1.2">Nick's House</option>
+                    <option value="1.8">SM Sucat</option>
+                </select>
+            </div>
+            
+            <div class="button-group">
+                <button class="btn-fare btn-regular" id="regularBtn" onclick="applyRegularFare()">Regular Fare</button>
+                <button class="btn-fare btn-discounted" id="discountBtn" onclick="applyDiscountedFare()">Discounted Fare</button>
+            </div>
+        </div>
+        
+        <div class="fare-display">
+            <div class="fare-label">Fare:</div>
+            <div class="fare-amount" id="fareAmount">100.00</div>
+        </div>
+    </div>
+    
+    <script>
+        let isDiscounted = false;
+        
+        function calculateFare() {
+            const baseFare = 100;
+            const pickupValue = parseFloat(document.getElementById('pickupLocation').value);
+            const dropoffValue = parseFloat(document.getElementById('dropoffLocation').value);
+            
+            let totalFare = baseFare * pickupValue * dropoffValue;
+            
+            if (isDiscounted) {
+                totalFare = totalFare * 0.8; // 20% discount
+            }
+            
+            document.getElementById('fareAmount').textContent = totalFare.toFixed(2);
+        }
+        
+        function applyRegularFare() {
+            isDiscounted = false;
+            document.getElementById('regularBtn').style.opacity = '1';
+            document.getElementById('discountBtn').style.opacity = '0.6';
+            calculateFare();
+        }
+        
+        function applyDiscountedFare() {
+            isDiscounted = true;
+            document.getElementById('regularBtn').style.opacity = '0.6';
+            document.getElementById('discountBtn').style.opacity = '1';
+            calculateFare();
+        }
+
+        window.onload = function() {
+            applyRegularFare();
+        };
+    </script>
+</body>
+</html>
