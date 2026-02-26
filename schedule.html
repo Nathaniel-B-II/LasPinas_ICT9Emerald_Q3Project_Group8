@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Account Submission Confirmed</title>
+    <title>Schedule - Burgerville Fare Guide</title>
     <style>
         * {
             margin: 0;
@@ -92,75 +92,76 @@
         }
         
         .hero {
-            background-color: white;
-            padding: 50px 40px;
+            background-color: rgba(110, 180, 200, 0.8);
+            padding: 40px;
             border-radius: 10px;
             text-align: center;
-            max-width: 500px;
+            max-width: 700px;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
         }
         
-        .success-icon {
+        .logo-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .logo {
             width: 80px;
             height: 80px;
-            margin: 0 auto 30px;
-            background-color: #4CAF50;
+            background-color: white;
             border-radius: 50%;
             display: flex;
-            justify-content: center;
             align-items: center;
-            font-size: 48px;
-            color: white;
+            justify-content: center;
+            font-weight: bold;
+            color: #ff9900;
+            font-size: 24px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .logo-text {
+            font-size: 32px;
+            color: #ff9900;
+            font-weight: bold;
         }
         
         h1 {
-            font-size: 28px;
+            font-size: 36px;
             color: #333;
-            margin-bottom: 15px;
+            margin-bottom: 30px;
+            font-weight: normal;
+        }
+        
+        .highlight {
+            color: #ff9900;
             font-weight: bold;
         }
         
-        p {
-            color: #666;
-            line-height: 1.6;
-            margin-bottom: 20px;
-            font-size: 16px;
-        }
-        
-        .details {
-            background-color: #f5f5f5;
-            padding: 20px;
-            border-radius: 8px;
-            margin: 30px 0;
-            text-align: left;
-        }
-        
-        .details p {
-            margin: 10px 0;
-            font-size: 14px;
-        }
-        
-        .label {
-            font-weight: bold;
-            color: #333;
-        }
-        
-        .button {
-            background-color: #007bff;
-            color: white;
-            padding: 12px 30px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            text-decoration: none;
-            display: inline-block;
-            transition: background-color 0.3s;
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: rgba(255, 255, 255, 0.9);
             margin-top: 20px;
         }
         
-        .button:hover {
-            background-color: #0056b3;
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+            color: #333;
+        }
+        
+        th {
+            background-color: #007bff;
+            color: white;
+            font-weight: bold;
+        }
+        
+        tr:hover {
+            background-color: #f5f5f5;
         }
     </style>
 </head>
@@ -180,17 +181,35 @@
     
     <div class="container">
         <div class="hero">
-            <div class="success-icon">✓</div>
-            <h1>Account Submission Confirmed!</h1>
-            <p>Thank you for submitting your account information. Your submission has been successfully received and is being processed.</p>
-            
-            <div class="details">
-                <p><span class="label">Status:</span> Submitted</p>
-                <p><span class="label">Date:</span> February 26, 2026</p>
-                <p><span class="label">Reference ID:</span> ACC-2026-02-26-001</p>
+            <div class="logo-section">
+                <div class="logo">🍔</div>
+                <div class="logo-text">Burgerville</div>
             </div>
+            <h1>Transport <span class="highlight">Schedule</span></h1>
             
-            <p>We will review your account submission and send you a confirmation email shortly. You can expect to hear from us within 2-3 business days.</p>
-            
-            <button class="button" onclick="window.location.href='index.html'">Return to Home</button>
+            <table>
+                <tr>
+                    <th>Route</th>
+                    <th>Departure</th>
+                    <th>Arrival</th>
+                </tr>
+                <tr>
+                    <td>North Ave. → Taft</td>
+                    <td>7:00 AM</td>
+                    <td>8:30 AM</td>
+                </tr>
+                <tr>
+                    <td>Taft → North Ave.</td>
+                    <td>9:00 AM</td>
+                    <td>10:30 AM</td>
+                </tr>
+                <tr>
+                    <td>North Ave. → Cubao</td>
+                    <td>11:00 AM</td>
+                    <td>11:45 AM</td>
+                </tr>
+            </table>
         </div>
+    </div>
+</body>
+</html>
