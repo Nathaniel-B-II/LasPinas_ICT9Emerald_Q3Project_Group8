@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title> BurgerVille Transport Schedule </title>
+  <title>Transport Schedule</title>
   <style>
     body {
       margin: 0;
@@ -15,7 +15,7 @@
       flex-direction: column;
     }
     nav {
-      background: rgba(0,0,0,0.7);
+      background: rgba(0,0,0,0.85);
       padding: 10px 20px;
       display: flex;
       justify-content: space-between;
@@ -50,28 +50,45 @@
       align-items: center;
     }
     .schedule-container {
-      background: rgba(0,0,0,0.6);
+      background: rgba(0,195,255,0.15);
       padding: 30px;
-      border-radius: 8px;
-      width: 600px;
+      border-radius: 12px;
+      width: 650px;
       text-align: center;
-      box-shadow: 0 0 15px rgba(0,0,0,0.5);
+      box-shadow: 0 0 20px rgba(0,195,255,0.5);
+    }
+    .logo {
+      margin-bottom: 20px;
+    }
+    .logo img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      box-shadow: 0 0 10px rgba(255,255,255,0.6);
+    }
+    .logo h1 {
+      margin-top: 10px;
+      font-size: 24px;
+      color: #ffcc00;
     }
     h2 {
       margin-bottom: 20px;
+      color: #ffcc00;
     }
     table {
       width: 100%;
       border-collapse: collapse;
-      background: rgba(255,255,255,0.1);
+      background: rgba(0,0,0,0.4);
     }
     th, td {
       border: 1px solid #fff;
-      padding: 10px;
+      padding: 12px;
       text-align: center;
+      color: #fff;
     }
     th {
       background: rgba(0,195,255,0.4);
+      font-weight: bold;
     }
     footer {
       text-align: center;
@@ -88,7 +105,6 @@
       <a href="#">Home</a>
       <a href="#">Fare Matrix</a>
       <a href="#">Schedule</a>
-      <a href="#">Location</a>
       <a href="#">Help</a>
     </div>
     <div class="actions">
@@ -100,7 +116,13 @@
   <div class="overlay">
     <!-- Schedule Table -->
     <div class="schedule-container">
-      <h2> BurgerVille Transport Schedule</h2>
+      <!-- Logo Section -->
+      <div class="logo">
+        <img src="download.jpg" alt="Logo"> <!-- Replace with your logo file -->
+        <h1> BurgerVille Transport Guide</h1>
+      </div>
+
+      <h2>BurgerVille Transport Schedule</h2>
       <table>
         <tr><th>Route</th><th>Departure</th><th>Arrival</th></tr>
         <tr><td>North Ave. → Taft</td><td>7:00 AM</td><td>8:30 AM</td></tr>
