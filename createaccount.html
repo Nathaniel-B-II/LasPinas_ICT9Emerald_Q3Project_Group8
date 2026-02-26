@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>BurgerVille Registration</title>
+  <title>Create Account</title>
   <style>
     body {
       margin: 0;
@@ -15,8 +15,8 @@
       flex-direction: column;
     }
     nav {
-      background: rgba(0,0,0,0.7);
-      padding: 10px 20px;
+      background: rgba(0,0,0,0.85);
+      padding: 30px 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -48,14 +48,15 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      opacity: 50;
     }
     .form-container, .confirmed {
-      background: rgba(0,0,0,0.6);
-      padding: 30px;
-      border-radius: 8px;
-      width: 350px;
+      background: rgba(9, 120, 161, 0.782);
+      padding: 50px;
+      border-radius: 20px;
+      width: 400px;
       text-align: center;
-      box-shadow: 0 0 15px rgba(0,0,0,0.5);
+      box-shadow: 10 10 0px rgba(0,195,255,0.5);
       opacity: 0;
       transform: translateY(20px);
       transition: all 0.6s ease;
@@ -64,8 +65,23 @@
       opacity: 1;
       transform: translateY(0);
     }
+    .logo {
+      margin-bottom: 20px;
+    }
+    .logo img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      box-shadow: 0 0 10px rgba(255,255,255,0.6);
+    }
+    .logo h1 {
+      margin-top: 10px;
+      font-size: 24px;
+      color: #ffcc00;
+    }
     h2 {
       margin-bottom: 20px;
+      color: #ffcc00;
     }
     .form-group {
       margin-bottom: 15px;
@@ -75,10 +91,6 @@
       padding: 10px;
       border: none;
       border-radius: 4px;
-    }
-    input[type="file"] {
-      background: transparent;
-      color: #fff;
     }
     .btn {
       width: 100%;
@@ -109,36 +121,37 @@
     <div class="links">
       <a href="#">Home</a>
       <a href="#">Fare Matrix</a>
-      <a href="#">Location</a>
+      <a href="#">Schedule</a>
       <a href="#">Help</a>
     </div>
     <div class="actions">
       <button>Book Now</button>
-      <button onclick="showCreateAccount()">Create Account</button>
+      <button>Create Account</button>
     </div>
   </nav>
 
   <div class="overlay">
-    <!-- Registration Form -->
-    <div class="form-container active" id="registrationForm">
-      <h2> BurgerVille Registration</h2>
-      <form id="form">
-        <div class="form-group"><input type="text" placeholder="First Name" required></div>
-        <div class="form-group"><input type="text" placeholder="Last Name" required></div>
-        <div class="form-group"><input type="number" placeholder="Age" required></div>
-        <div class="form-group"><input type="text" placeholder="Contact Number" required></div>
-        <div class="form-group"><input type="email" placeholder="Email" required></div>
+    <!-- Create Account Form -->
+    <div class="form-container active" id="createAccount">
+      <!-- Logo Section -->
+      <div class="logo">
+        <img src="download.jpg" alt="Logo"> <!-- Replace with your logo file -->
+        <h1>Transport Guide</h1>
+      </div>
+
+      <h2>Create Account</h2>
+      <form id="accountForm">
         <div class="form-group"><input type="text" placeholder="Username" required></div>
+        <div class="form-group"><input type="email" placeholder="Email" required></div>
         <div class="form-group"><input type="password" placeholder="Password" required></div>
-        <div class="form-group"><input type="file"></div>
-        <button class="btn" type="submit">Register</button>
+        <button class="btn" type="submit">Submit</button>
       </form>
     </div>
 
     <!-- Account Confirmed Message -->
     <div class="confirmed" id="confirmedMessage">
-      <h2>Account Confirmed!!!</h2>
-      <p>Your account has been created</p>
+      <h2>Account Confirmed!</h2>
+      <p>Your account has been successfully created.</p>
     </div>
   </div>
 
@@ -147,26 +160,19 @@
   </footer>
 
   <script>
-    const form = document.getElementById('form');
-    const registrationForm = document.getElementById('registrationForm');
+    const form = document.getElementById('accountForm');
+    const createAccount = document.getElementById('createAccount');
     const confirmedMessage = document.getElementById('confirmedMessage');
 
     form.addEventListener('submit', function(e) {
       e.preventDefault();
-      registrationForm.classList.remove('active');
+      createAccount.classList.remove('active');
       setTimeout(() => {
-        registrationForm.style.display = 'none';
+        createAccount.style.display = 'none';
         confirmedMessage.style.display = 'block';
         confirmedMessage.classList.add('active');
       }, 600);
     });
-
-    function showCreateAccount() {
-      registrationForm.style.display = 'block';
-      registrationForm.classList.add('active');
-      confirmedMessage.style.display = 'none';
-      confirmedMessage.classList.remove('active');
-    }
   </script>
 </body>
 </html>
